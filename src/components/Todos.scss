@@ -1,0 +1,66 @@
+.item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    align-items: center;
+
+    .item-left {
+        display: flex;
+        align-items: center;
+        
+        .item-title {
+            margin: 10px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            text-decoration-color: rgb(109, 18, 18);
+        }
+
+        .checkbox{
+            width: 20px;
+            height: 20px;
+        }
+
+    }
+
+    .btns {
+        button:first-child {
+            margin-right: 10px;
+        }
+        
+        .btn-delete {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(109, 18, 18);
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+         
+            &:hover {
+                background-color: rgb(36, 19, 19);
+            }
+        }
+
+        .btn-edit {
+            background-color: rgba(95, 65, 25, 0.651);
+            border: none;
+            padding: 3px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color:rgba(160, 105, 33, 0.87) ;
+            }
+
+        }
+
+
+    }
+
+}

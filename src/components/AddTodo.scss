@@ -1,0 +1,26 @@
+
+
+.add-input {
+    outline: none;
+    font-size: 25px;
+    background-color: transparent;
+    border: transparent;
+    padding: 3px 0px;
+    margin: 5px;
+    
+}
+
+.submit-input {
+    font-size: 25px;
+    background-color: rgb(21, 74, 95);
+    border-radius: 10px;
+    padding: 5px 8px;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(21, 74, 95);
+
+    }
+
+}
