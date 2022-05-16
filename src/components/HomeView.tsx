@@ -33,12 +33,12 @@ export default class HomeView extends Component<{}, AppState> {
 
   render() {
     const {todos, search} = this.state;
-    console.log(this.state.todos)
+    
     return (
       <>
       <AddTodo addTodoHandler={this.addTodoHandler}/>
       <Search/>
-      <Todos/>
+      <Todos todos={todos}/>
       </>
       
     )

@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import { Item } from './HomeView'
 
-export default class TodoItem extends Component {
+interface TodoItemProps {
+  todo: Item
+}
+
+export default class TodoItem extends Component<TodoItemProps, {}> {
   render() {
+    const {todo} = this.props;
     return (
-      <div>TodoItem</div>
+      <li>{todo.title}</li>
     )
   }
 }
