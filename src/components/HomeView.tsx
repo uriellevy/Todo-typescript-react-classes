@@ -33,7 +33,6 @@ export default class HomeView extends Component<{}, AppState> {
 
   render() {
     const {todos, search} = this.state;
-    
     return (
       <>
       <AddTodo addTodoHandler={this.addTodoHandler}/>
