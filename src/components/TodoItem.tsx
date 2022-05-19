@@ -14,7 +14,7 @@ export default class TodoItem extends Component<TodoItemProps, {}> {
     return (
       <li className='item-wrapper'>
         <div className='item-left'>
-        <input type="checkbox" className='checkbox' onChange={toggleCompleteHandler.bind(this, todo.id)}/>
+        <input type="checkbox" className='checkbox' onChange={() => toggleCompleteHandler(todo.id)}/>
         <div className={todo.isCompleted ? 'item-title completed' : 'item-title'}>
         {todo.title}
         </div>
