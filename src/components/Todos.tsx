@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Item } from './HomeView'
 import TodoItem from './TodoItem'
+import './Todos.scss'
 
 interface TodosProps {
   todos: Item[]

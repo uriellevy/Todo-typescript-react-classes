@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Item } from './HomeView'
+import './AddTodo.scss'
 
 
 interface AddTodoProps {
@@ -33,8 +34,8 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
     const {text} = this.state;
     return (
       <form onSubmit={this.submitAddHandler}>
-       <input type="text" placeholder='Add Task...' value={text} onChange={this.onChangeHandler}/> 
-       <input type="submit" /> 
+       <input className='add-input' type="text" placeholder='Add Task...' value={text} onChange={this.onChangeHandler}/> 
+       <input className='submit-input' type="submit" /> 
       </form>
     )
   }

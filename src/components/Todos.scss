@@ -26,19 +26,19 @@
 
     }
 
-    .btns {
+    .item-right {
         button:first-child {
             margin-right: 10px;
         }
         
         .btn-delete {
-            width: 20px;
             height: 20px;
             background-color: rgb(109, 18, 18);
             border-radius: 5px;
             border: none;
             color: #fff;
             cursor: pointer;
+            padding: 0 5px;
             transition: all 0.3s ease;
          
             &:hover {
