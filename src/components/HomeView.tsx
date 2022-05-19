@@ -31,13 +31,24 @@ export default class HomeView extends Component<{}, AppState> {
       })
   }
 
+  toggleCompleteHandler = (id: number) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (id === todo.id) {
+         todo.isCompleted = !todo.isCompleted
+        }
+        return todo
+      })
+    })
+  }
+
   render() {
     const {todos, search} = this.state;
     return (
       <>
       <AddTodo addTodoHandler={this.addTodoHandler}/>
       <Search/>
-      <Todos todos={todos}/>
+      <Todos todos={todos} toggleCompleteHandler={this.toggleCompleteHandler}/>
       </>
       
     )
