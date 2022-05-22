@@ -38,9 +38,9 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
     this.addInput.focus();
   }
 
-  componentDidUpdate() {
-    this.addInput.focus();
-  }
+  // componentDidUpdate() {
+  //   this.addInput.focus();
+  // }
 
   
   

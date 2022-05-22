@@ -14,7 +14,7 @@ export default class Todos extends Component<TodosProps, {}> {
   render() {
     const {todos, toggleCompleteHandler, deleteHandler, editHandler} = this.props;
     return (
-      <ul>
+      <ul className='list-wrapper'>
         {todos.map((todo) => (
           <TodoItem 
           todo={todo} 
