@@ -42,13 +42,19 @@ export default class HomeView extends Component<{}, AppState> {
     })
   }
 
+  deleteHandler = (id: number) => {
+    this.setState({
+      todos: this.state.todos.filter((todo) => id !== todo.id)
+    })
+  }
+
   render() {
     const {todos, search} = this.state;
     return (
       <>
       <AddTodo addTodoHandler={this.addTodoHandler}/>
       <Search/>
-      <Todos todos={todos} toggleCompleteHandler={this.toggleCompleteHandler}/>
+      <Todos todos={todos} toggleCompleteHandler={this.toggleCompleteHandler} deleteHandler={this.deleteHandler}/>
       </>
       
     )

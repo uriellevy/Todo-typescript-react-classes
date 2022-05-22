@@ -6,16 +6,17 @@ import './Todos.scss'
 interface TodosProps {
   todos: Item[]
   toggleCompleteHandler: (id: number) => void
+  deleteHandler: (id: number) => void
 }
 
 export default class Todos extends Component<TodosProps, {}> {
   render() {
-    const {todos, toggleCompleteHandler} = this.props;
+    const {todos, toggleCompleteHandler, deleteHandler} = this.props;
     console.log(todos)
     return (
       <ul>
         {todos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} toggleCompleteHandler={toggleCompleteHandler}/>
+          <TodoItem todo={todo} key={todo.id} toggleCompleteHandler={toggleCompleteHandler} deleteHandler={deleteHandler}/>
         ))}
       </ul>
     )
