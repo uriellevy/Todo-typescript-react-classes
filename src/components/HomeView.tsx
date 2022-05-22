@@ -48,13 +48,17 @@ export default class HomeView extends Component<{}, AppState> {
     })
   }
 
+  searchHandler = (search: string) => {
+    this.setState({search: search})
+  }
+
   render() {
     const {todos, search} = this.state;
     return (
       <>
       <AddTodo addTodoHandler={this.addTodoHandler}/>
-      <Search/>
-      <Todos todos={todos} toggleCompleteHandler={this.toggleCompleteHandler} deleteHandler={this.deleteHandler}/>
+      <Search  searchHandler={this.searchHandler}/>
+      <Todos todos={todos.filter((todo) => todo.title.includes(search))} toggleCompleteHandler={this.toggleCompleteHandler} deleteHandler={this.deleteHandler} />
       </>
       
     )
