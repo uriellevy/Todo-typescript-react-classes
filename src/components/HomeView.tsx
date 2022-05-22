@@ -13,6 +13,7 @@ export interface Item {
 interface AppState {
   todos: Item[]
   search: string
+  editingTodo: string
 }
 
 export default class HomeView extends Component<{}, AppState> {
@@ -23,6 +24,7 @@ export default class HomeView extends Component<{}, AppState> {
       {title: 'play soccer', id: 3, isCompleted: false, isEditing: false}
     ],
     search: '',
+    editingTodo: '',
   }
 
   addTodoHandler = (todo: Item) => {
@@ -52,7 +54,13 @@ export default class HomeView extends Component<{}, AppState> {
     this.setState({search: search})
   }
 
-  
+  editHandler = (id:number, text: string) => {
+    console.log(this.state.todos.find((todo) => id === todo.id));
+    const selectedTodo = this.state.todos.find((todo) => id === todo.id);
+    this.setState({editingTodo: text});
+  }
+
+
 
   render() {
     const {todos, search} = this.state;
@@ -60,7 +68,11 @@ export default class HomeView extends Component<{}, AppState> {
       <>
       <AddTodo addTodoHandler={this.addTodoHandler}/>
       <Search  searchHandler={this.searchHandler}/>
-      <Todos todos={todos.filter((todo) => todo.title.includes(search))} toggleCompleteHandler={this.toggleCompleteHandler} deleteHandler={this.deleteHandler} />
+      <Todos 
+        todos={todos.filter((todo) => todo.title.includes(search))} 
+        toggleCompleteHandler={this.toggleCompleteHandler} 
+        deleteHandler={this.deleteHandler}
+        editHandler={this.editHandler} />
       </>
       
     )

@@ -5,7 +5,7 @@ interface SearchProps {
   searchHandler: (search: string) => void
 }
 
-
+  
 
 export default class Search extends Component<SearchProps, {}> {
   changeSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
