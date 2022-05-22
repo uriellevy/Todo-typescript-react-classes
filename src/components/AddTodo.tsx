@@ -28,6 +28,7 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
     }
     this.setState({text: ''})
   }
+
   addInput: any
 
   componentDidMount() {
@@ -37,6 +38,8 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
   componentDidUpdate() {
     this.addInput.focus();
   }
+
+  
   
 
   render() {

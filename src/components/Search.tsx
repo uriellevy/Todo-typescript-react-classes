@@ -11,10 +11,13 @@ export default class Search extends Component<SearchProps, {}> {
   changeSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.props.searchHandler(e.target.value)
   }
+
+
+  
   render() {
     return (
       <>
-        <input type="text" placeholder='Search...' className='search-input' onChange={this.changeSearchHandler} />      
+        <input type="text" placeholder='Search...' className='search-input' onChange={this.changeSearchHandler}  />      
       </>
     )
   }
