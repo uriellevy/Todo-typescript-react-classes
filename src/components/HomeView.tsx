@@ -52,6 +52,8 @@ export default class HomeView extends Component<{}, AppState> {
     this.setState({search: search})
   }
 
+  
+
   render() {
     const {todos, search} = this.state;
     return (

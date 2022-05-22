@@ -28,13 +28,22 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
     }
     this.setState({text: ''})
   }
+  addInput: any
+
+  componentDidMount() {
+    this.addInput.focus();
+  }
+
+  componentDidUpdate() {
+    this.addInput.focus();
+  }
   
 
   render() {
     const {text} = this.state;
     return (
       <form onSubmit={this.submitAddHandler}>
-       <input className='add-input' type="text" placeholder='Add Task...' value={text} onChange={this.onChangeHandler}/> 
+       <input className='add-input' type="text" placeholder='Add Task...' value={text} onChange={this.onChangeHandler} ref={(inputEl) => (this.addInput = inputEl)}/> 
        <input className='submit-input' type="submit" /> 
       </form>
     )
