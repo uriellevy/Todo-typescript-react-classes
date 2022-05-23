@@ -28,7 +28,7 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
         {title: this.state.text,
          id: Math.round(Math.random() * 1000),
          isCompleted: false, 
-         isEditing: false})
+         })
     }
     this.setState({text: ''})
   }
@@ -38,16 +38,10 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
     this.addInput.focus();
   }
 
-  // componentDidUpdate() {
-  //   this.addInput.focus();
-  // }
-
-  
-  
 
   render() {
     const {text} = this.state;
-    console.log(text)
+    // console.log(text)
     return (
       <form onSubmit={this.submitAddHandler}>
        <input 

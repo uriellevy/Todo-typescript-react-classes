@@ -7,24 +7,24 @@ export interface Item {
   title: string
   id: number
   isCompleted: boolean
-  isEditing: boolean
 }
 
 interface AppState {
   todos: Item[]
   search: string
-  editingTodo: string
+  isEditing: boolean
+
 }
 
 export default class HomeView extends Component<{}, AppState> {
   state = {
     todos: [
-      {title: 'homework', id: 1, isCompleted: false, isEditing: false},
-      {title: 'go swimming', id: 2, isCompleted: false, isEditing: false},
-      {title: 'play soccer', id: 3, isCompleted: false, isEditing: false}
+      {title: 'homework', id: 1, isCompleted: false},
+      {title: 'go swimming', id: 2, isCompleted: false},
+      {title: 'play soccer', id: 3, isCompleted: false},
     ],
     search: '',
-    editingTodo: '',
+    isEditing: false,
   }
 
   addTodoHandler = (todo: Item) => {
@@ -54,11 +54,17 @@ export default class HomeView extends Component<{}, AppState> {
     this.setState({search: search})
   }
 
-  editHandler = (id:number, text: string) => {
-    console.log(this.state.todos.find((todo) => id === todo.id));
-    const selectedTodo = this.state.todos.find((todo) => id === todo.id);
-    this.setState({editingTodo: text});
-  }
+  // editHandler = (id:number, newValue: string) => {
+  //    this.state.todos.map((todo) => {
+  //     if(todo.id === id) {
+  //       todo.isEditing = true;
+  //       todo.title = newValue;
+  //     } else {
+  //       todo.isEditing = false;
+  //     }
+  //     return todo;
+  //   })
+  // }
 
 
 
@@ -72,7 +78,7 @@ export default class HomeView extends Component<{}, AppState> {
         todos={todos.filter((todo) => todo.title.includes(search))} 
         toggleCompleteHandler={this.toggleCompleteHandler} 
         deleteHandler={this.deleteHandler}
-        editHandler={this.editHandler} />
+         />
       </>
       
     )
