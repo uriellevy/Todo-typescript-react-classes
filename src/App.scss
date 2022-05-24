@@ -21,10 +21,12 @@
     }
 
     .wrapper {
-        overflow-y: hidden;
+        overflow: hidden;
         border: 3px solid rgb(21, 74, 95);
         padding: 10px 15px;
         border-radius: 10px;
+        box-shadow: 0 3px 0 3px rgba(0, 0, 0, 0.205);
+        width: 500px;
     }
 
 }

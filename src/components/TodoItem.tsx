@@ -5,13 +5,14 @@ interface TodoItemProps {
   todo: Item
   toggleCompleteHandler: (id: number) => void
   deleteHandler: (id: number) => void
+  editHandler: (id: number) => void
 }
 
 export default class TodoItem extends Component<TodoItemProps, {}> {
   
   
   render() {
-    const {todo, toggleCompleteHandler, deleteHandler} = this.props;
+    const {todo, toggleCompleteHandler, deleteHandler, editHandler} = this.props;
     return (
       <li className='item-wrapper'>
           <div className='item-left'>
@@ -21,7 +22,7 @@ export default class TodoItem extends Component<TodoItemProps, {}> {
           </div>
           </div>
           <div className='item-right'>
-          <button className='btn-edit' >Edit</button>
+          <button className='btn-edit' onClick={() => editHandler(todo.id)} >Edit</button>
           <button className='btn-delete' onClick={() => deleteHandler(todo.id)}>Delete</button>
           </div>
       </li>

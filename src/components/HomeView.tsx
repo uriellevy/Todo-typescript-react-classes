@@ -13,7 +13,7 @@ interface AppState {
   todos: Item[]
   search: string
   isEditing: boolean
-
+  editedTodo: any
 }
 
 export default class HomeView extends Component<{}, AppState> {
@@ -25,12 +25,26 @@ export default class HomeView extends Component<{}, AppState> {
     ],
     search: '',
     isEditing: false,
+    editedTodo: {title:'', id: 0, isCompleted: false},
   }
 
   addTodoHandler = (todo: Item) => {
+    if(this.state.isEditing) {
+      this.setState({
+        todos: this.state.todos.map((todoItem) => {
+          if(todoItem.id === this.state.editedTodo.id) {
+            todoItem = todo;
+          }else todoItem = todoItem
+           return todoItem;
+        })
+      })
+    }else {
       this.setState({
         todos: [...this.state.todos, todo ]
       })
+    }
+
+    this.setState({isEditing: false})
   }
 
   toggleCompleteHandler = (id: number) => {
@@ -54,30 +68,28 @@ export default class HomeView extends Component<{}, AppState> {
     this.setState({search: search})
   }
 
-  // editHandler = (id:number, newValue: string) => {
-  //    this.state.todos.map((todo) => {
-  //     if(todo.id === id) {
-  //       todo.isEditing = true;
-  //       todo.title = newValue;
-  //     } else {
-  //       todo.isEditing = false;
-  //     }
-  //     return todo;
-  //   })
-  // }
+  editHandler = (id:number) => {
+    const selectedTodo = this.state.todos.find((todo) => todo.id === id)
+    this.setState({
+      isEditing: true,
+      editedTodo: selectedTodo
+    })
+  }
 
 
 
   render() {
-    const {todos, search} = this.state;
+    const {todos, search, isEditing, editedTodo} = this.state;
+    // console.log(isEditing, editedTodo)
     return (
       <>
-      <AddTodo addTodoHandler={this.addTodoHandler}/>
+      <AddTodo addTodoHandler={this.addTodoHandler} isEditing={isEditing} editedTodo={editedTodo}/>
       <Search  searchHandler={this.searchHandler}/>
       <Todos 
         todos={todos.filter((todo) => todo.title.includes(search))} 
         toggleCompleteHandler={this.toggleCompleteHandler} 
         deleteHandler={this.deleteHandler}
+        editHandler={this.editHandler}
          />
       </>
       

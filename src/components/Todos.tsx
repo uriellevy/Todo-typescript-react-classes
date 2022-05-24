@@ -7,11 +7,12 @@ interface TodosProps {
   todos: Item[]
   toggleCompleteHandler: (id: number) => void
   deleteHandler: (id: number) => void
+  editHandler: (id: number) => void
 }
 
 export default class Todos extends Component<TodosProps, {}> {
   render() {
-    const {todos, toggleCompleteHandler, deleteHandler} = this.props;
+    const {todos, toggleCompleteHandler, deleteHandler, editHandler} = this.props;
     return (
       <ul className='list-wrapper'>
         {todos.map((todo) => (
@@ -20,6 +21,7 @@ export default class Todos extends Component<TodosProps, {}> {
           key={todo.id} 
           toggleCompleteHandler={toggleCompleteHandler} 
           deleteHandler={deleteHandler}
+          editHandler={editHandler}
           />
         ))}
       </ul>

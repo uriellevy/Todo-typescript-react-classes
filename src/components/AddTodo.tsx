@@ -5,6 +5,8 @@ import './AddTodo.scss'
 
 interface AddTodoProps {
   addTodoHandler: (item: Item) => void
+  isEditing: boolean
+  editedTodo: Item | null
 }
 
 interface AddTodoState {
@@ -41,8 +43,23 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
 
   render() {
     const {text} = this.state;
-    // console.log(text)
+    const {isEditing, editedTodo} = this.props;
+    // console.log(isEditing)
     return (
+      <>
+      {isEditing ?
+      <form onSubmit={this.submitAddHandler}>
+      <input 
+      className='add-input'
+      type="text" 
+      placeholder='Edit Task...' 
+      value={text} 
+      onChange={this.onChangeHandler} 
+      ref={(inputEl) => (this.addInput = inputEl)}/> 
+      <input className='submit-input' type="submit" value='Edit' /> 
+     </form>
+      :
+      
       <form onSubmit={this.submitAddHandler}>
        <input 
        className='add-input'
@@ -51,8 +68,10 @@ export default class AddTodo extends Component<AddTodoProps, AddTodoState> {
        value={text} 
        onChange={this.onChangeHandler} 
        ref={(inputEl) => (this.addInput = inputEl)}/> 
-       <input className='submit-input' type="submit" /> 
+       <input className='submit-input' type="submit" value='Submit' /> 
       </form>
+      }
+      </>
     )
   }
 }
